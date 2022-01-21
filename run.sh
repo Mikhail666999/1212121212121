@@ -1,7 +1,7 @@
 #!/bin/bash
 
 catalog="/home/mika/1MyAll1/projects/121212121212"
-file_name_with_expansion="Main.java"
+file_name_with_extension="Main.java"
 file_name_without_expansion="Main"
 
 echo "######################### Начало ####################################################################" >> log.txt
@@ -30,8 +30,8 @@ echo -e "" >> log.txt
 echo "--------------------------------------------------------------------"
 echo "Ошибки \"javac "$namefiledlajavac"\": " >> log.txt
 echo "--------------------------------------------------------------------" >> log.txt
-javac "$file_name_with_expansion" 2>> log.txt
-javac "$file_name_with_expansion" 
+javac "$file_name_with_extension" 2>> log.txt
+javac "$file_name_with_extension" 
 
 if [ $? -eq 0 ]; then
 	echo "Ошибок нету"
