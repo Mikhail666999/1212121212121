@@ -1,21 +1,21 @@
 #!/bin/bash
 
 catalog="/home/mika/1MyAll1/projects/121212121212"
-namefiledlajavac="Main.java"
-namefiledlajava="Main"
+file_name_with_expansion="Main.java"
+file_name_without_expansion="Main"
 
-echo "######################### Начало ##################################" >> log.txt
+echo "######################### Начало ####################################################################" >> log.txt
 echo "Время начала: `date`" >> log.txt
 echo -e "" >> log.txt
 cd "$catalog"
 echo "Переходим в каталог \""$catalog"\"" >> log.txt
-read -p "Отчистить экран [0/1]: " ASA
+read -p "Отчистить экран [0/1]: " x
 echo -e ""
 echo "Спрашиваем пользователя хочет ли он отчистить консоль" >> log.txt
 
-if [[ 0 = "$ASA" ]]; then
+if [[ 0 = "$x" ]]; then
 	echo "Отказался" >> log.txt
-elif [[ 1 = "$ASA" ]]; then 
+elif [[ 1 = "$x" ]]; then 
 	echo "Согласился" >> log.txt
 	clear
 	echo "Отчищаем консоль" >> log.txt
@@ -30,8 +30,8 @@ echo -e "" >> log.txt
 echo "--------------------------------------------------------------------"
 echo "Ошибки \"javac "$namefiledlajavac"\": " >> log.txt
 echo "--------------------------------------------------------------------" >> log.txt
-javac Main.java 
-javac Main.java 2>> log.txt
+javac "$file_name_with_expansion" 2>> log.txt
+javac "$file_name_with_expansion" 
 
 if [ $? -eq 0 ]; then
 	echo "Ошибок нету"
