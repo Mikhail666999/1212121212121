@@ -31,10 +31,16 @@ if [ $? -eq 0 ]; then
 	echo "Ошибок нету"
 	echo "--------------------------------------------------------------------"
 	echo "Ошибок нету" >> log.txt
+	oshibka=0
 	echo "--------------------------------------------------------------------" >> log.txt
 	echo -e "" >> log.txt
 	echo "\"javac Main.java\" выдала ошибки?" >> log.txt
 	echo "Нет" >> log.txt
+	if [ 0 = "$oshibka" ]; then
+		clear
+	else 
+		echo qeqqweqw
+	fi
 	java Main 
 	
 else
