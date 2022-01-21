@@ -1,8 +1,14 @@
+#!/bin/bash
+
+catalog="/home/mika/1MyAll1/projects/121212121212"
+namefiledlajavac="Main.java"
+namefiledlajava="Main"
+
 echo "######################### Начало ##################################" >> log.txt
 echo "Время начала: `date`" >> log.txt
 echo -e "" >> log.txt
-cd "/home/mika/1MyAll1/projects/121212121212"
-echo "Переходим в каталог \"/home/mika/1MyAll1/projects/121212121212\"" >> log.txt
+cd "$catalog"
+echo "Переходим в каталог \""$catalog"\"" >> log.txt
 read -p "Отчистить экран [0/1]: " ASA
 echo -e ""
 echo "Спрашиваем пользователя хочет ли он отчистить консоль" >> log.txt
@@ -22,7 +28,7 @@ else
 fi
 echo -e "" >> log.txt
 echo "--------------------------------------------------------------------"
-echo "Ошибки \"javac Main.java\": " >> log.txt
+echo "Ошибки \"javac "$namefiledlajavac"\": " >> log.txt
 echo "--------------------------------------------------------------------" >> log.txt
 javac Main.java 
 javac Main.java 2>> log.txt
@@ -32,24 +38,25 @@ if [ $? -eq 0 ]; then
 	echo "--------------------------------------------------------------------"
 	echo "Ошибок нету" >> log.txt
 	oshibka=0
+	echo "Переменная @oshibka@ = 0 так как ошибок нету" >> log.txt
 	echo "--------------------------------------------------------------------" >> log.txt
 	echo -e "" >> log.txt
-	echo "\"javac Main.java\" выдала ошибки?" >> log.txt
+	echo "\"javac "$namefiledlajavac"\" выдала ошибки?" >> log.txt
 	echo "Нет" >> log.txt
+	echo "Если переменная @oshibka@ = 0 то" >> log.txt
 	if [ 0 = "$oshibka" ]; then
 		clear
-	else 
-		echo qeqqweqw
+		echo "Отчищаем консоль" >> log.txt
 	fi
-	java Main 
+	java "$namefiledlajava"
 	
 else
 	echo "--------------------------------------------------------------------"
 	echo "--------------------------------------------------------------------" >> log.txt
 	echo -e "" >> log.txt
-	echo "\"javac Main.java\" выдала ошибки?" >> log.txt
+	echo "\"javac "$namefiledlajavac"\" выдала ошибки?" >> log.txt
 	echo "Да" >> log.txt
-	echo "Ошибка в \"javac Main.java\""
+	echo "Ошибка в \"javac "$namefiledlajavac"\""
 
 fi
 
